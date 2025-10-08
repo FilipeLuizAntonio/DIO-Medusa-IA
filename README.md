@@ -39,10 +39,15 @@ source .venv/bin/activate
 # 3) Instalar requisitos dentro do venv
 pip install -U pip
 pip install -r ai/requirements.txt
+
+####Se o venv reclamar de ensurepip/pip ausente:
+sudo apt install -y python3-venv python3-virtualenv
+
+python3 -m venv .venv
+
 source .venv/bin/activate
 
-Usar pacotes nativos do Kali (sem pip)
-
+python3 -m pip install -U pip
 
 ## 🔑 Configuração
 Edite `data/targets.env`:
