@@ -1,0 +1,7 @@
+🛡️ Mitigações (mapa rápido)
+
+FTP: desativar; SFTP/SSH; TLS; política de senhas; fail2ban.
+
+SMB: desativar SMBv1; NTLMv2 only; lockout; auditoria; GPO hardening.
+
+Web (DVWA): rate limit; CAPTCHA; mensagens neutras; WAF básico; MFA.
