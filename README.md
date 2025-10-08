@@ -50,6 +50,20 @@ source .venv/bin/activate
 
 python3 -m pip install -U pip
 
+4) (Opcional) Backend headless p/ gráficos e PDF
+
+export MPLBACKEND=Agg              # evita erro de display
+
+# Para PDF via pandoc + LaTeX (recomendado):
+
+sudo apt install -y texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra
+
+5) Rodar o pipeline completo
+
+chmod +x scripts/*.sh
+
+./scripts/run_attacks.sh
+
 ## 🔑 Configuração
 Edite `data/targets.env`:
 ```env
