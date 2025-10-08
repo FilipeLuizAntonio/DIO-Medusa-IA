@@ -1,0 +1,28 @@
+1) (toda nova sessão) ativar venv e preparar ambiente
+cd /home/blue   # ou a pasta do teu repo
+source .venv/bin/activate
+export MPLBACKEND=Agg
+
+2) conferir pré-requisitos do projeto
+# tem as pastas?
+ls -la | egrep '^(ai|scripts|data)$' || echo "⚠️ faltam pastas ai/ scripts/ data/"
+# targets e wordlists?
+test -f data/targets.env || echo "⚠️ crie data/targets.env"
+test -f data/wordlists/users.txt || echo "⚠️ crie data/wordlists/users.txt"
+test -f data/wordlists/pass.txt  || echo "⚠️ crie data/wordlists/pass.txt"
+# scripts executáveis
+chmod +x scripts/*.sh
+
+3) rodar (com log pra facilitar debug)
+set -e
+./scripts/run_attacks.sh | tee data/out/run.log
+
+4) checar artefatos gerados
+echo; ls -lah data/out
+echo; ls -lah data/out/raw
+echo; column -t -s, data/out/summary.csv 2>/dev/null || echo "⚠️ summary.csv não foi criado"
+
+
+
+
+
