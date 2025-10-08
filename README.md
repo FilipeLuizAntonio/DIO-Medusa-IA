@@ -15,9 +15,13 @@ mkdir -p ai scripts data/wordlists data/out
 cat > ai/requirements.txt << 'EOF'
 
 pandas
+
 matplotlib
+
 pyyaml
+
 markdown
+
 EOF
 
 Usar virtualenv (recomendado)
