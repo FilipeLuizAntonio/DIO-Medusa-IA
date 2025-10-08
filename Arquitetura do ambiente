@@ -1,0 +1,12 @@
+## 🧱 Arquitetura do ambiente
+- **VM1**: Kali Linux (atacante)
+- **VM2**: Metasploitable 2 (alvo, FTP/SSH/SMB etc.)
+- Rede: **host‑only** / interna
+
+```
+Kali ─── host-only ─── Metasploitable2
+   \
+    └── DVWA (opcional)
+```
+
+---
