@@ -13,6 +13,7 @@ mkdir -p ai scripts data/wordlists data/out
 
 # requirements
 cat > ai/requirements.txt << 'EOF'
+
 pandas
 matplotlib
 pyyaml
