@@ -47,3 +47,18 @@ Isso irá:
 4) Rodar **`ai/ai_report.py`** → gera `data/out/report.md` + `data/out/report.pdf` + gráficos `.png`.
 
 ---
+📸 Evidências e screenshots
+<img width="1459" height="454" alt="image" src="https://github.com/user-attachments/assets/17b09d3e-8f97-4b09-915d-8d5da42c0a48" />
+
+Usuários encontrados
+<img width="1370" height="221" alt="image" src="https://github.com/user-attachments/assets/48ab2aa3-8468-4703-a716-e0652e8795b3" />
+
+Password Info
+<img width="823" height="604" alt="image" src="https://github.com/user-attachments/assets/f07e4b28-83f9-4af8-9ba7-36503600e319" />
+
+data/out/* contém as saídas para review (CSV, PNG, MD/PDF).
+
+
+
+
+
