@@ -1,0 +1,13 @@
+ftp:
+- Desabilitar FTP simples; preferir SFTP/SSH
+- Enforçar TLS e senhas fortes (min len 12, complexidade)
+- Fail2ban com banimentos progressivos
+smb:
+- Política de lockout (p.ex. 5 tentativas / 15 min)
+- Desabilitar SMBv1 e NTLMv1
+- Auditoria 4625/4624 + alertas SIEM
+- Senhas únicas (evitar reuso)
+dvwa:
+- Rate-limiting e bloqueio por IP/User-Agent
+- CAPTCHA no login
+- Mensagens de erro neutras (evitam enumeração)
