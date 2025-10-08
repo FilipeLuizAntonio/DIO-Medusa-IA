@@ -101,14 +101,22 @@ Isso irá:
 Usuários encontrados
 <img width="1370" height="221" alt="image" src="https://github.com/user-attachments/assets/48ab2aa3-8468-4703-a716-e0652e8795b3" />
 
+
 Password Info
 <img width="823" height="604" alt="image" src="https://github.com/user-attachments/assets/f07e4b28-83f9-4af8-9ba7-36503600e319" />
+
+
+<img width="1648" height="147" alt="image" src="https://github.com/user-attachments/assets/0b575c66-1d43-4640-9ee5-05aa585a7677" />
+
 
 data/out/* contém as saídas para review (CSV, PNG, MD/PDF).
 
 6) Verificar resultados
 
 ls -lah data/out
+
+<img width="550" height="130" alt="image" src="https://github.com/user-attachments/assets/87d77a25-701f-4a5d-bcaa-6fe2add5a56f" />
+
 
 column -t -s, data/out/summary.csv | sed '1s/^/\n/;s/^/  /'
 
