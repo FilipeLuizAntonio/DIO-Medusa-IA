@@ -5,18 +5,35 @@
 - Kali com `nmap`, `medusa`, `enum4linux`/`enum4linux-ng`, `python3`, `pip`, `pandoc` (para PDF) e `matplotlib`/`pandas`.
 - DVWA (se usar o cenário web) com **security = low** e **Allow URL fopen** habilitado.
 
-```bash
 sudo apt update
 sudo apt install -y medusa nmap python3-pip pandoc
-pip3 install -r ai/requirements.txt
-```
 
-**ai/requirements.txt**
-```txt
+# estando no diretório do projeto
+mkdir -p ai scripts data/wordlists data/out
+
+# requirements
+cat > ai/requirements.txt << 'EOF'
 pandas
 matplotlib
 pyyaml
 markdown
+EOF
+
+Usar virtualenv (recomendado)
+# 1) Dependência do venv
+sudo apt install -y python3-venv
+
+# 2) Criar e ativar o ambiente na raiz do repo
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 3) Instalar requisitos dentro do venv
+pip install -U pip
+pip install -r ai/requirements.txt
+source .venv/bin/activate
+
+Usar pacotes nativos do Kali (sem pip)
+
 
 ## 🔑 Configuração
 Edite `data/targets.env`:
