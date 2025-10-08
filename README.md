@@ -92,6 +92,8 @@ Isso irá:
 3) Salvar saídas cru (`raw`) + **normalizar** em `data/out/*.csv`.
 4) Rodar **`ai/ai_report.py`** → gera `data/out/report.md` + `data/out/report.pdf` + gráficos `.png`.
 
+<img width="936" height="232" alt="image" src="https://github.com/user-attachments/assets/16c80a78-f3de-4f7b-a7df-6aa1de041e29" />
+
 ---
 📸 Evidências e screenshots
 <img width="1459" height="454" alt="image" src="https://github.com/user-attachments/assets/17b09d3e-8f97-4b09-915d-8d5da42c0a48" />
@@ -103,6 +105,18 @@ Password Info
 <img width="823" height="604" alt="image" src="https://github.com/user-attachments/assets/f07e4b28-83f9-4af8-9ba7-36503600e319" />
 
 data/out/* contém as saídas para review (CSV, PNG, MD/PDF).
+
+6) Verificar resultados
+
+ls -lah data/out
+
+column -t -s, data/out/summary.csv | sed '1s/^/\n/;s/^/  /'
+
+
+Abra o data/out/report.pdf — deve ter sumário de hits por vetor, top credenciais e gráficos.
+
+
+
 
 
 
