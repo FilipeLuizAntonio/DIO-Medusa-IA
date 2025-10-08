@@ -1,0 +1,6 @@
+- **Pipeline de coleta → análise → relatório** 100% local (sem envio a serviços externos).
+- **Parser inteligente** das saídas do Medusa, Nmap e enum4linux (CSV/JSON).
+- **Dashboards** (matplotlib) com taxa de sucesso, tentativas por segundo, bloqueios e heatmap por usuário/serviço.
+- **Gerador de relatório**: `ai/ai_report.py` consolida achados, métricas, IOC do lab e **mitigações mapeadas para OWASP/ASVS**.
+- **Wordlists dinâmicas**: script para criar variações corporativas (mangling rules simples) com base em palavras‑semente.
+- **Password spraying seguro**: controle de taxa/intervalo + backoff para simular prevenção de lockout.
