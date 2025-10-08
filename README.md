@@ -41,6 +41,7 @@ pip install -U pip
 pip install -r ai/requirements.txt
 
 ####Se o venv reclamar de ensurepip/pip ausente:
+
 sudo apt install -y python3-venv python3-virtualenv
 
 python3 -m venv .venv
