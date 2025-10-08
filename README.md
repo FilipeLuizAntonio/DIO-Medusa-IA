@@ -53,9 +53,9 @@ python3 -m pip install -U pip
 ## 🔑 Configuração
 Edite `data/targets.env`:
 ```env
-TARGET_FTP=192.168.56.101
-TARGET_SMB=192.168.56.101
-TARGET_DVWA=http://192.168.56.102
+TARGET_FTP=192.168.9.25
+TARGET_SMB=192.168.9.25
+TARGET_DVWA=http://192.168.9.25
 ```
 
 data/wordlists base (exemplo simples):
