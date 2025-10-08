@@ -1,0 +1,13 @@
+📝 Como apresentar (README → GitHub)
+
+Contexto: laboratório controlado, objetivos do desafio.
+
+Arquitetura: diagrama simples (ASCII ou imagem).
+
+Execução: run_attacks.sh e outputs gerados.
+
+IA: gráficos + report.pdf com achados e recomendações.
+
+Boas práticas: limites de thread/taxa, ética e escopo.
+
+Mitigações: tabela consolidada.
