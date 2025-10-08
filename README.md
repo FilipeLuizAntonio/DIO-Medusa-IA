@@ -30,6 +30,10 @@ sudo apt install -y python3-venv
 
 # 2) Criar e ativar o ambiente na raiz do repo
 python3 -m venv .venv
+
+# 2) ativar o venv (note o ponto ou 'source' no começo)
+. .venv/bin/activate
+# ou
 source .venv/bin/activate
 
 # 3) Instalar requisitos dentro do venv
