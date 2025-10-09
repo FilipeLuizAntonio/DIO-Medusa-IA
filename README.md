@@ -1,28 +1,40 @@
 # DIO-Medusa-IA
-**Projeto autoral para ambiente controlado de laboratório** (Kali + Servidor Vulnerável + DVWA). Enumera alvo (Nmap + enum4linux). Este repositório demonstra ataques de
-força bruta de forma **ética** e controlada (Medusa) e usa **Inteligência Artificial** (local/offline) para normalizar e analisar saídas (`data/out/*.csv`), gerar gráficos (`chart_hits.png`) e **produzir um relatório técnico automático (Markdown → PDF)**.
-- 
-- ## ⚙️ Pré-requisitos
-- Kali com `nmap`, `medusa`, `enum4linux`/`enum4linux-ng`, `python3`, `pip`, `pandoc` (para PDF) e `matplotlib`/`pandas`.
-- DVWA (se usar o cenário web) com **security = low** e **Allow URL fopen** habilitado.
 
+**Projeto autoral para ambiente controlado de laboratório** (Kali + Servidor Vulnerável + DVWA).
+- Enumera o alvo (Nmap + enum4linux).
+- Executa ataques de **força bruta** de forma **ética** e controlada (Medusa).
+- Usa **IA local/offline** (Python) para **normalizar saídas** (`data/out/*.csv`), **gerar gráficos** (`chart_hits.png`) e **produzir relatório técnico automático** (**Markdown → PDF**).
+
+---
+
+## 📦 Saídas de exemplo (sanitizadas)
+- PDF: [sanitizado/report-sample.pdf](sanitizado/report-sample.pdf)  
+- Markdown: [sanitizado/report-sample.md](sanitizado/report-sample.md)  
+- Gráfico: [sanitizado/chart_hits.png](sanitizado/chart_hits.png)  
+- Sumário CSV: [sanitizado/summary.csv](sanitizado/summary.csv)  
+- Evidências (texto): [sanitizado/evidence_sanitized.txt](sanitizado/evidence_sanitized.txt)
+
+---
+
+## ⚙️ Pré-requisitos
+
+**Pacotes (Kali/Debian):**
+```bash
 sudo apt update
-sudo apt install -y medusa nmap python3-pip pandoc
+sudo apt install -y nmap medusa enum4linux python3-venv python3-pip pandoc \
+                    texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra
 
-# estando no diretório do projeto
+
+# na raiz do repositório
 mkdir -p ai scripts data/wordlists data/out
 
-# requirements
+# Requisitos Python
 cat > ai/requirements.txt << 'EOF'
-
 pandas
-
 matplotlib
-
 pyyaml
-
 markdown
-
+tabulate
 EOF
 
 Usar virtualenv (recomendado)
@@ -59,34 +71,35 @@ export MPLBACKEND=Agg              # evita erro de display
 
 sudo apt install -y texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra
 
-5) Rodar o pipeline completo
-
-chmod +x scripts/*.sh
-
-./scripts/run_attacks.sh
+## 🚀 Execução rápida
+```bash
+# 1) criar/ativar venv e instalar deps
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -r ai/requirements.txt   # inclui pandas, matplotlib, tabulate, pyyaml, markdown
 
 ## 🔑 Configuração
 Edite `data/targets.env`:
-```env
 TARGET_FTP=192.168.9.25
 TARGET_SMB=192.168.9.25
 TARGET_DVWA=http://192.168.9.25
-```
 
+Duas wordlists simples em data/wordlists/
 data/wordlists base (exemplo simples):
-```
-users.txt → user, msfadmin, admin, root
-pass.txt  → 123456, msfadmin, admin, root
-```
-Gere variações com `scripts/gen_wordlists.py` (ver abaixo).
 
----
+users.txt -> usuários enumerados via linux4enum
+pass.txt  -> dicionário de senhas corporativas
+
+(Opcional) Gere variações com um gerador próprio scripts/gen_wordlists.py (se quiser ampliar o dicionário).
 
 ## 🚀 Execução rápida (tudo em um)
-```bash
-chmod +x scripts/*.sh
-./scripts/run_attacks.sh
-```
+1. Criar/ativar venv e instalar deps
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -U pip
+pip install -r ai/requirements.txt
+
 Isso irá:
 1) Rodar **Nmap** (agressivo + detecção de serviços) no alvo.
 2) Executar **FTP brute force**, **SMB spraying** e **DVWA web form** (se configurado).
@@ -109,6 +122,10 @@ Password Info
 
 <img width="1648" height="147" alt="image" src="https://github.com/user-attachments/assets/0b575c66-1d43-4640-9ee5-05aa585a7677" />
 
+5) gerar relatório e PDF
+export MPLBACKEND=Agg
+python3 ai/ai_report.py
+pandoc data/out/report.md -o data/out/report.pdf
 
 data/out/* contém as saídas para review (CSV, PNG, MD/PDF).
 
@@ -123,11 +140,3 @@ column -t -s, data/out/summary.csv | sed '1s/^/\n/;s/^/  /'
 
 
 Abra o data/out/report.pdf — deve ter sumário de hits por vetor, top credenciais e gráficos.
-
-
-
-
-
-
-
-
