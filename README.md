@@ -1,5 +1,6 @@
 # DIO-Medusa-IA
-**Projeto autoral para ambiente controlado de laboratório** (Kali + Metasploitable2 + DVWA). Este repositório demonstra ataques de força bruta de forma **ética** e controlada e usa **Inteligência Artificial** (local/offline) para analisar saídas, gerar gráficos e **produzir um relatório técnico automático (Markdown → PDF)**.
+**Projeto autoral para ambiente controlado de laboratório** (Kali + Servidor Vulnerável + DVWA). Enumera alvo (Nmap + enum4linux). Este repositório demonstra ataques de
+força bruta de forma **ética** e controlada (Medusa) e usa **Inteligência Artificial** (local/offline) para normalizar e analisar saídas (`data/out/*.csv`), gerar gráficos (`chart_hits.png`) e **produzir um relatório técnico automático (Markdown → PDF)**.
 - 
 - ## ⚙️ Pré-requisitos
 - Kali com `nmap`, `medusa`, `enum4linux`/`enum4linux-ng`, `python3`, `pip`, `pandoc` (para PDF) e `matplotlib`/`pandas`.
