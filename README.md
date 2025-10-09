@@ -1,3 +1,9 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#)
+[![Python 3](https://img.shields.io/badge/python-3.10%2B-blue.svg)](#)
+[![Made with ❤️ for Learning](https://img.shields.io/badge/purpose-EDU/Local%20Lab-orange.svg)](#)
+
+> **Aviso ético/legal**: uso **exclusivo** em laboratório controlado e alvos sob autorização. O autor e colaboradores **não se responsabilizam** por usos indevidos.
+
 # DIO-Medusa-IA
 
 **Projeto autoral para ambiente controlado de laboratório** (Kali + Servidor Vulnerável + DVWA).
