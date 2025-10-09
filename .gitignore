@@ -1,3 +1,4 @@
+# ===== Outputs sensíveis (NÃO versionar) =====
 data/out/raw/
 data/out/*.txt
 data/out/*.log
@@ -5,10 +6,21 @@ data/out/*.csv
 data/out/*.md
 data/out/*.pdf
 
-# Mantemos apenas exemplos públicos
+# Mantemos apenas exemplos públicos (sanitizados)
 !sanitizado/*
 
-# Python
+# ===== Python =====
 .venv/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.pytest_cache/
+.ipynb_checkpoints/
+
+# ===== Editor/OS =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
