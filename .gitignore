@@ -1,0 +1,12 @@
+# Saídas e dados sensíveis (NÃO versionar)
+data/out/raw/
+data/out/*.txt
+data/out/*.log
+data/out/*.csv
+data/out/*.md
+data/out/*.pdf
+
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
