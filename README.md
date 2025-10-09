@@ -44,41 +44,68 @@ sudo apt install -y python3-venv
 # 2) Criar e ativar o ambiente na raiz do repo
 python3 -m venv .venv
 
-# 2) ativar o venv (note o ponto ou 'source' no começo)
+# 3) ativar o venv (note o ponto ou 'source' no começo)
 . .venv/bin/activate
 # ou
 source .venv/bin/activate
 
-# 3) Instalar requisitos dentro do venv
+# 4) Instalar requisitos dentro do venv
 pip install -U pip
 pip install -r ai/requirements.txt
 
 ####Se o venv reclamar de ensurepip/pip ausente:
-
 sudo apt install -y python3-venv python3-virtualenv
-
 python3 -m venv .venv
-
 source .venv/bin/activate
-
 python3 -m pip install -U pip
 
-4) (Opcional) Backend headless p/ gráficos e PDF
-
+# 5) (Opcional) Backend headless p/ gráficos e PDF
 export MPLBACKEND=Agg              # evita erro de display
 
-# Para PDF via pandoc + LaTeX (recomendado):
-
+# 6)Para PDF via pandoc + LaTeX (recomendado):
 sudo apt install -y texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra
 
 ## 🚀 Execução rápida
 ```bash
-# 1) criar/ativar venv e instalar deps
+# 1) Criar/ativar venv e instalar deps
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pip
 pip install -r ai/requirements.txt   # inclui pandas, matplotlib, tabulate, pyyaml, markdown
 
+# 2) Rodar o pipeline completo (coleta + ataques + normalização)
+chmod +x scripts/*.sh
+./scripts/run_attacks.sh
+
+Isso faz:
+Nmap (agressivo + detecção de serviços) no alvo.
+FTP brute force, SMB spraying e DVWA web form (se configurado).
+Salva saídas cruas em data/out/raw/ e normaliza para data/out/*.csv.
+Gera relatório e gráficos com Python.
+
+# 3) Gerar relatório e PDF
+export MPLBACKEND=Agg
+python3 ai/ai_report.py
+pandoc data/out/report.md -o data/out/report.pdf
+
+🔎 Como ficam as saídas
+ls -lah data/out
+
+Exemplo (sanitizado):
+
+<img width="967" height="361" alt="image" src="https://github.com/user-attachments/assets/5c6f37f0-9851-4de3-8b89-9f4bba319014" />
+
+📸 Evidências e screenshots
+<img width="1459" alt="evidências" src="https://github.com/user-attachments/assets/17b09d3e-8f97-4b09-915d-8d5da42c0a48" />
+
+Usuários encontrados
+<img width="1370" alt="users" src="https://github.com/user-attachments/assets/48ab2aa3-8468-4703-a716-e0652e8795b3" />
+
+Password Info
+<img width="823" alt="pwd-info" src="https://github.com/user-attachments/assets/f07e4b28-83f9-4af8-9ba7-36503600e319" />
+
+Sumário compactado (CSV → coluna):
+Gerar relatório e PDF
 ## 🔑 Configuração
 Edite `data/targets.env`:
 TARGET_FTP=192.168.9.25
